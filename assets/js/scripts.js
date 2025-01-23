@@ -58,9 +58,7 @@ const hannahInfo = `
        Your browser does not support the video tag.
    </video>`;
 const marielleInfo = `
-    <p class="text-center p-2" style="font-family: 'Corinthia', serif; font-size: 32px; font-style: italic; font-weight: bold; color: red;">
-        "Tayo ay nasa ✨fine dining restaurant✨"
-    </p>
+        <p class="text-center p-2 fw-bold" style="font-size: 28px;">Tayo ay nasa</p><p class="text-center p-2" style="font-family: 'Corinthia', serif; font-size: 28px; font-style: italic; font-weight: bold; color: red;"> ✨fine dining restaurant✨</p>
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">
        Your browser does not support the video tag.

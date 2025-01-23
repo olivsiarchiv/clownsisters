@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f8f4eb;
+}
+
+@font-face {
+    font-family: 'headerFont';
+    src: url('../fonts/nulshock bd.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    text-transform: capitalize;
+}
+
+.floating-container {
+    background: #efbccf;
+    border: 3px solid black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 1500px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+
+.floating-container h1 {
+    font-family: 'headerFont', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 3rem);
+}
+
+.cs_name {
+    font-family: 'VT323', monospace;
+    font-size: clamp(1.1rem, 2.8vw, 2rem);
+    text-transform: uppercase;
+}
+
+.cs_name a {
+    text-decoration: none;
+    color: black;
+}
+
+.cs_name a:hover {
+    color: white;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.navbar-row {
+    background: #fbf1f2;
+    border-top: 3px solid black;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    padding: 0 20px;
+    font-family: 'VT323', monospace;
+}
+
+.nav-link:hover {
+    color: #efbccf;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.navbar-toggler.custom-toggler {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 2rem);
+    max-width: 1000px;
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+
+.navbar-toggler-icon {
+    margin: auto;
+    background-image: none;
+}
+
+.navbar-toggler-icon::before {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #efbccf;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+  
+.navbar-toggler-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #efbccf;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+  
+.navbar-toggler-icon span {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #efbccf;
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+.nav-spacing .nav-item {
+    margin: 0 87px;
+    text-align: center;
+    line-height: 0.8;
+}
+
+.nav-spacing .nav-link {
+    font-size: clamp(1.5rem, 1.8vw, 3.5rem);
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link.active {
+    color: #efbccf;
+    background-color: black;
+    border-radius: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+      text-align: center;
+    }
+  
+    .nav-spacing {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+      line-height: 2;
+    }
+  
+    .nav-item {
+      margin-bottom: 5px;
+    }
+}
+
+.floating-container-2 {
+    background: #fbf1f2;
+    border: 3px solid black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 1500px;
+    border-radius: 10px;
+    padding-bottom: 0;
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+
+.home-content, .about-content, .playlist-content, .gallery-content {
+    text-align: center;
+}
+
+.footer {
+    background: #efbccf;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 1500px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: auto;
+    font-family: 'VT323', monospace;
+}
+
+.footer a {
+    color: #c78ca0;
+}
+
+.footer a:hover {
+    color: white;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}

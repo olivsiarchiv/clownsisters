@@ -58,8 +58,8 @@ const hannahInfo = `
        Your browser does not support the video tag.
    </video>`;
 const marielleInfo = `
-    <p class="text-center fw-bold p-2">
-        TAYO AY NASA FINE DINING RESTAURANT
+    <p class="text-center p-2" style="font-family: 'Qwigley', serif; font-size: 40px; font-style: italic;">
+        "Tayo ay nasa fine dining restaurant."
     </p>
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">

@@ -42,11 +42,11 @@ function showModal(name, content) {
 }
 
 const marciaInfo = `
-    <p>
-        Maria is a talented artist with a passion for painting. Her works are renowned for their vibrant colors and deep emotional expression.
+    <p class="text-align-justify p-2">
+        Hi mga bessy ko ako si Toni Fowler halos karamihan tingin saken ay walker puro lang tuwad wala naman alam puro pang babash wala kaseng laman pero totoo na bobo ako wrong grammar ako putang ina ko tanggap koyan lahat kaya di masakit alam mo ang masakit pag tinira ka sa pwet nakikisali lang ako kahit di naman to bars di ako rapper nakiki uso langs pagod kase ako walang magawa ikaw bessy ko naligo kanaba lockdown isang buwan nakakatakot naman baka sa pasko buntis ako malibog pa naman ang asawa ko kaya namamaga pekpek ko pero seryoso salamat sa suporta pero nung una maraming galet pero ako'y ngayon mahal sa mga taong inis isa lang ang tandaan ako nalang bastusin wag ang aking anak nakikiusap ako kahit gago ako hubadera ako twerker lang ako tara trashtalk retokada peke tawagin mo ko pokpok wala ako pake.
     </p>`;
 const hannahInfo = `
-    <p>
+    <p class="text-center">
         TAYO AY NASA FINE DINING RESTAURANT
     </p>`;
 const marielleInfo = `

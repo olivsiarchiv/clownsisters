@@ -58,9 +58,9 @@ const hannahInfo = `
        Your browser does not support the video tag.
    </video>`;
 const marielleInfo = `
-    <h1 class="text-center fw-bold p-2">
+    <p class="text-center fw-bold p-2">
         TAYO AY NASA FINE DINING RESTAURANT
-    </h1>
+    </p>
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">
        Your browser does not support the video tag.

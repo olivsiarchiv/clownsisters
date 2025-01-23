@@ -44,4 +44,35 @@ function showModal(name) {
         activeLink.classList.add('active');
     }
 }
-window.onload = () => loadContent('home');
+
+function typeMessage(message, elementId, delay = 100, callback = null) {
+    const element = document.getElementById(elementId);
+    let index = 0;
+
+    function typeLetter() {
+        if (index < message.length) {
+            element.textContent += message[index];
+            index++;
+            setTimeout(typeLetter, delay);
+        } else if (callback) {
+            callback();
+        }
+    }
+
+    typeLetter();
+}
+
+function showSplashScreen() {
+    const splashScreen = document.getElementById('splash-screen');
+    typeMessage("Loading... Please wait...", "splash-message", 100, () => {
+        setTimeout(() => {
+            splashScreen.classList.add('hidden');
+        }, 3000);
+    });
+}
+
+window.onload = () => {
+    showSplashScreen();
+    loadContent('home');
+};
+// window.onload = () => loadContent('home');

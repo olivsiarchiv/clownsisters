@@ -59,8 +59,8 @@ const hannahInfo = `
    </video>`;
 const marielleInfo = `
     <div class="text-center p-2">
-        <p class="fw-bold" style="font-size: 28px; display: inline;">Tayo ay nasa</p>
-        <p style="font-family: 'Corinthia', serif; font-size: 28px; font-style: italic; font-weight: bold; color: red; display: inline;">✨fine dining restaurant✨</p>
+        <p class="fw-bold" style="font-size: 21px; display: inline;">Tayo ay nasa</p>
+        <p style="font-family: 'Corinthia', serif; font-size: 21px; font-style: italic; font-weight: bold; color: red; display: inline;">✨fine dining restaurant✨</p>
     </div>
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">

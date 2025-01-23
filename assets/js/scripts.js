@@ -22,16 +22,12 @@ function loadContent(section) {
     }
 }
 
-function showModal(name) {
+function showModal(name, content) {
     const modalTitle = document.querySelector('#myModal .modal-title');
     const modalBody = document.querySelector('#myModal .modal-body');
 
     modalTitle.innerHTML = `${name}'s Personal Information`;
-    modalBody.innerHTML = 
-        `<p>
-            Hi beshy ${name}!<br><br>
-            SOBRANG LATINA! PUTANG INA SARAP TALAGA NG BABAE NA TO OH! HAYOP KA TALAGA! ANG GANDA GANDA MO SHET KA TALAGA PARANG UNANG TINGIN SAYO LALABASAN NA AGAD AKO SOBRANG GANDA MO OH! KA GWAPA VA UYTCHHHH! GRABE ANG PAGKA MONYEKA SA BABAE! MONYEKA! LATINA! GORJUICE! SOBRANG SARAP!
-        </p>`;
+    modalBody.innerHTML = content;
 
     const myModal = new bootstrap.Modal(document.getElementById('myModal'));
     myModal.show();
@@ -44,6 +40,19 @@ function showModal(name) {
         activeLink.classList.add('active');
     }
 }
+
+const marciaInfo = `
+    <p>
+        Maria is a talented artist with a passion for painting. Her works are renowned for their vibrant colors and deep emotional expression.
+    </p>`;
+const hannahInfo = `
+    <p>
+        TAYO AY NASA FINE DINING RESTAURANT
+    </p>`;
+const marielleInfo = `
+    <p>
+        Anna is a skilled chef known for her innovative recipes that blend traditional flavors with modern techniques.
+    </p>`;
 
 function typeMessage(message, elementId, delay = 100, callback = null) {
     const element = document.getElementById(elementId);
@@ -67,7 +76,7 @@ function showSplashScreen() {
     typeMessage("Loading... Please wait...", "splash-message", 100, () => {
         setTimeout(() => {
             splashScreen.classList.add('hidden');
-        }, 3000);
+        }, 500);
     });
 }
 

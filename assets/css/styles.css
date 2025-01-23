@@ -199,17 +199,14 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Change indicator color */
 .carousel-indicators button {
-    background-color: white; /* e.g., red, #FF0000, rgb(255,0,0) */
+    background-color: white;
 }
 
-/* Change active indicator color */
 .carousel-indicators .active {
     background-color: #efbccf;
 }
 
-/* Change next/prev button icon color */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #efbccf;

@@ -20,10 +20,10 @@
                 <h1>clown sisters .⊹˖ᯓ★. ݁₊</h1>
             </div>
             <div class="col text-end">
-                <div class="d-flex justify-content-end cs_name">
-                    <a href="#" class="me-3">marcia</a>
-                    <a href="#" class="me-3">hannah</a>
-                    <a href="#" class="me-3">marielle</a>
+                <div class="d-flex justify-content-end cs-name-link">
+                    <a href="#" class="me-3 cs-name-link" onclick="showModal('Marcia')">marcia</a>
+                    <a href="#" class="me-3 cs-name-link" onclick="showModal('Hannah')">hannah</a>
+                    <a href="#" class="me-3 cs-name-link" onclick="showModal('Marielle')">marielle</a>
                 </div>
             </div>
         </div>
@@ -57,23 +57,51 @@
             </div>
         </div>
     </div>
-    <div class="container floating-container-2 flex-grow-1">
+    <div class="container floating-container-2 flex-grow-1 mb-4">
         <div class="home-content" id="home">
-            <h1 style="font-size: 60px;">homepage</h1>
+            <h1 class="fw-bold text-center">homepage</h1>
+            <p class="text-center"><b>Welcome to my Homepage !</b></p>
+            <p class="text-align-justify p-2">
+                Hi mga bessy ko ako si Toni Fowler halos karamihan tingin saken ay walker puro lang tuwad wala naman alam puro pang babash wala kaseng laman pero totoo na bobo ako wrong grammar ako putang ina ko tanggap koyan lahat kaya di masakit alam mo ang masakit pag tinira ka sa pwet nakikisali lang ako kahit di naman to bars di ako rapper nakiki uso langs pagod kase ako walang magawa ikaw bessy ko naligo kanaba lockdown isang buwan nakakatakot naman baka sa pasko buntis ako malibog pa naman ang asawa ko kaya namamaga pekpek ko pero seryoso salamat sa suporta pero nung una maraming galet pero ako'y ngayon mahal sa mga taong inis isa lang ang tandaan ako nalang bastusin wag ang aking anak nakikiusap ako kahit gago ako hubadera ako twerker lang ako tara trashtalk retokada peke tawagin mo ko pokpok wala ako pake.
+            </p>
         </div>
         <div class="about-content" id="about">
-            <h1 style="font-size: 60px;">about us</h1>
+            <h1 class="fw-bold text-center">about us</h1>
+            <p class="text-center"><b>about us paragraph daw</b></p>
+            <p class="text-align-justify p-2">
+                SOBRANG LATINA! PUTANG INA SARAP TALAGA NG BABAE NA TO OH! HAYOP KA TALAGA! ANG GANDA GANDA MO SHET KA TALAGA PARANG UNANG TINGIN SAYO LALABASAN NA AGAD AKO SOBRANG GANDA MO OH! KA GWAPA VA UYTCHHHH! GRABE ANG PAGKA MONYEKA SA BABAE! MONYEKA! LATINA! GORJUICE! SOBRANG SARAP!
+            </p>
         </div>
         <div class="playlist-content" id="playlist">
-            <h1 style="font-size: 60px;">subomoto</h1>
+            <h1 class="fw-bold text-center">playlist</h1>
+            <p class="text-center"><b>toni fowler songs medley</b></p>
         </div>
         <div class="gallery-content" id="gallery">
-            <h1 style="font-size: 60px;">eyy</h1>
+            <h1 class="fw-bold text-center">gallery</h1>
+            <p class="text-center"><b>tite</b></p>
         </div>
     </div>
 
     <div class="footer sticky-bottom text-center py-1">
         <p class="mb-0">&copy; 2025 by <a href="https://github.com/olivsiarchiv" class="text-decoration-none">olivsiarchiv</a></p>
+    </div>
+
+    <!-- modal -->
+    <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-align-justify">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><small>Close</small></button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

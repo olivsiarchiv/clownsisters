@@ -59,7 +59,7 @@ const hannahInfo = `
    </video>`;
 const marielleInfo = `
     <p class="text-center p-2" style="font-family: 'Corinthia', serif; font-size: 32px; font-style: italic; font-weight: bold; color: red;">
-        "Tayo ay nasa fine dining restaurant."
+        "Tayo ay nasa ✨fine dining restaurant✨"
     </p>
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">

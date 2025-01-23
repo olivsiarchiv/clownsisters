@@ -51,7 +51,7 @@ const hannahInfo = `
     </p>`;
 const marielleInfo = `
     <p>
-        Anna is a skilled chef known for her innovative recipes that blend traditional flavors with modern techniques.
+        MAMI ON KNEE
     </p>`;
 
 function typeMessage(message, elementId, delay = 100, callback = null) {

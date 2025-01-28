@@ -50,9 +50,35 @@ const marciaInfo = `
         Your browser does not support the video tag.
     </video>`;
 const hannahInfo = `
-    <p class="text-center fw-bold p-2">
-        test
-    </p>`;
+    <!-- PER MEMBER MODAL CONTENT -->
+    <div class="pf-modal d-flex justify-content-center align-items-center">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="pf-header row d-flex align-items-center px-2">
+                <div class="col-auto pf-logo d-flex justify-content-start">
+                    <img src="assets/img/cs-logo.png" alt="Logo">
+                </div>
+                <div class="col text-end">
+                    <h1 class="pf-header-title">Identification Card</h1>
+                </div>
+            </div>
+            <!-- Content Section -->
+            <div class="row pf-content">
+                <!-- Profile Image -->
+                <div class="col-md-4 pfp-icon text-center">
+                    <img src="assets/img/icon-1.jpg" alt="Profile">
+                </div>
+                <!-- Details -->
+                <div class="col-md-8 pf-details">
+                    <h4 class="fw-bold">[name here]</h4>
+                    <p class="mb-1"><strong>ID Number:</strong> 123456789</p>
+                    <p class="mb-1"><strong>Role:</strong> Web Developer</p>
+                    <p class="mb-1"><strong>Department:</strong> IT</p>
+                    <p class="mb-1"><strong>Expiration Date:</strong> 12/31/2025</p>
+                </div>
+            </div>
+        </div>
+    </div>`;
 const marielleInfo = `
     <div class="text-center p-2">
         <p class="fw-bold" style="font-size: 21px; display: inline;">Tayo ay nasa</p>

@@ -319,6 +319,8 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0 auto;
+    width: calc(100% - 4rem);
+    max-width: 800px;
 }
 
 .modal-content {
@@ -326,11 +328,10 @@ body {
     border: 3px solid black;
     margin: auto;
     width: 90%;
-    max-width: 1500px;
 }
 
 .modal-header {
-    background: #efbccf;
+    background-color: #efbccf;
     border-bottom: 3px solid black;
 }
 
@@ -349,11 +350,29 @@ body {
     align-items: center;
 }
 
-.btn-close {
+.modal-header .btn-close {
     color: black;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+    width: 12px;
+    height: 12px;
+    padding: 4px;
+    font-size: 10px;
 }
 
-.btn-secondary {
+/* .btn-close {
+    color: black;
+    background-color: #fbf1f2;
+    border-radius: 8px;
+    border: 2px solid black;
+    width: 10px;
+    height: 10px;
+    padding: 2px;
+    font-size: 10px;
+} */
+
+/* .btn-secondary {
     background: #fbf1f2;
     color: black;
     border: 3px solid black;
@@ -364,7 +383,7 @@ body {
     background-color: black;
     color: #efbccf;
     border: 3px solid white;
-}
+} */
 
 .splash-screen {
     position: fixed;

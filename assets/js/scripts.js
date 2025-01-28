@@ -43,7 +43,7 @@ function showModal(name, content) {
 
 const marciaInfo = `
     <p class="text-align-justify fw-bold p-2">
-        Hi mga bessy ko ako si Toni Fowler halos karamihan tingin saken ay walker puro lang tuwad wala naman alam puro pang babash wala kaseng laman pero totoo na bobo ako wrong grammar ako putang ina ko tanggap koyan lahat kaya di masakit alam mo ang masakit pag tinira ka sa pwet nakikisali lang ako kahit di naman to bars di ako rapper nakiki uso langs pagod kase ako walang magawa ikaw bessy ko naligo kanaba lockdown isang buwan nakakatakot naman baka sa pasko buntis ako malibog pa naman ang asawa ko kaya namamaga pekpek ko pero seryoso salamat sa suporta pero nung una maraming galet pero ako'y ngayon mahal sa mga taong inis isa lang ang tandaan ako nalang bastusin wag ang aking anak nakikiusap ako kahit gago ako hubadera ako twerker lang ako tara trashtalk retokada peke tawagin mo ko pokpok wala ako pake.
+        test
     </p>
     <video autoplay loop playsinline width="100%" controls>
         <source src="assets/img/vid-3.mp4" type="video/mp4">
@@ -51,12 +51,8 @@ const marciaInfo = `
     </video>`;
 const hannahInfo = `
     <p class="text-center fw-bold p-2">
-        Just watched "A Catholic School Girl"
-    </p>
-    <video autoplay loop playsinline width="100%" controls>
-       <source src="assets/img/vid-2.mp4" type="video/mp4">
-       Your browser does not support the video tag.
-   </video>`;
+        test
+    </p>`;
 const marielleInfo = `
     <div class="text-center p-2">
         <p class="fw-bold" style="font-size: 21px; display: inline;">Tayo ay nasa</p>
@@ -65,7 +61,10 @@ const marielleInfo = `
     <video autoplay loop playsinline width="100%" controls>
        <source src="assets/img/vid-1.mp4" type="video/mp4">
        Your browser does not support the video tag.
-    </video>`;
+    </video>
+    <div class="p-2">
+        <p class="fw-bold text-align-justify" style="font-size: 15px; display: inline;">nung dinner 🥩🍜☕️ ano nangyari? 🤨🫣💀 may inaabot ka kay papi 🫳🏻🤔💅🏻 PUTANGINA NALAGLAG ⁉️😤 YUNG BISKWIT tama?! 🥔🫓👍🏻 Tayo ay nasa ✨✨fine DINING restaurant✨✨ diba? so yung pag ka skwater natin 🤩🤙🏿💩 iwan natin sa bahay. 🍻🏠🍆 pag nalaglag andun 😬🙈‼️ sina miss vina sila doc yappy. 🧝🏻‍♀️👨‍⚕️👀 imbis na "ay sorry sorry" 🙏🏻🫦😿 ano naging reaction 🤠🫥👊🏻 PUTANGINA NETO 🤦🏻‍♀️🤬🔥 NAGBIBIGAY LANG GANYAN PA! 😤🖕🏻🦶🏻 EH kinang ina mo naman 🧞‍♂️🙄🐊 nasa restaurant ka naman na sosyal 👨🏻‍🍳🧍🏻‍♀️🦦, kelan moko narinig 🐣📆👂 na PUKINGINA NAMAN EH!  🦪🍑⏳ nag gaganyan ako sa ke ms vina? 👩🏻‍🦯‍➡️🤰🏻👁️ never. 👎🏻🙅🏻‍♀️ ang tawag dun pakikisama 💃🏻🤳🏻💆🏻‍♀️ hindi ka naman magiging peke eh 😃😇 pero puta umadjust ka naman sa sitwasyon 🥺🤌🏻🧚🏻 TANGINA NAMAN EH 😡😤🗯️ NAGBIBIGAYBIGAY LANG AKO EH! 🤬👨🏻‍🦲🦭 napaganun ako sayo oh 👁️👄👁️ay putangina ni mikay oh 🪳🌛💨 ay gago nakaganun ako oh👁️👄👁️ nakatingin lang ako sayo ng ganyan. 👀🌬️💥 tas nung sinabi mo 🤾🏻‍♀️🥊🤦🏻‍♀️ ay sori sori sori po sori po 🗽☹️✊🏻 nung gumilid kayo 🫤👭🏻 tsaka, tsaka ako kumalma 😌🤰🏻🦥 tinignan ako ni vince e 🌚🙍🏼‍♂️👩‍❤️‍💋‍👨</p>
+    </div>`;
 
 function typeMessage(message, elementId, delay = 100, callback = null) {
     const element = document.getElementById(elementId);

@@ -150,14 +150,10 @@ body {
     background: #fbf1f2;
     border: 3px solid black;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    padding: 1rem;
+    margin: 1px auto 1rem;
     width: calc(100% - 2rem);
     max-width: 1500px;
     border-radius: 10px;
-    padding-bottom: 0;
-    margin-top: 1px;
-    margin-bottom: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -165,32 +161,40 @@ body {
 }
 
 .home-content {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    margin: 0.8rem auto;
+    padding: 0.5rem auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: first baseline;
 }
 
 .carousel-fixed {
-    flex: 1 1 calc(67.67% - 1rem);
-    width: calc(100vw - 150px);
-    max-width: 1000px;
+    flex: 0 0 40%;
+    max-width: 40%;
     max-height: 500px;
     height: calc(100vh - 100px);
-    margin-bottom: 1rem;
     overflow: hidden;
     border: 3px solid black;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
+
+/* .carousel-inner {
+    margin: 0;
+    padding: 0;
+} */
 
 .carousel-inner img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    margin: 0;
-    padding: 0;
+    object-fit: contain;
 }
 
 #carouselExampleIndicators {
@@ -218,8 +222,11 @@ body {
 .home-content-blocks {
     display: flex; 
     flex-direction: column;
-    flex: 1 1 calc(33.33% - 1rem);
-    max-width: 800px;
+    flex: 0 0 60%;
+    max-width: 60%;
+    padding-left: 1rem;
+    margin: 0 auto;
+    padding-right: 0;
 }
 
 .blocks-content {
@@ -463,9 +470,26 @@ body {
 
 
 @media (max-width: 768px) {
-    .carousel-fixed, .col-sm-4 {
-        flex: 1 1 100%;
-        margin-left: 0;
+    .carousel-fixed,
+    .home-content-blocks {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .carousel-fixed {
+        max-height: 300px;
+        height: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .carousel-inner img {
+        object-fit: cover;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-content-blocks {
+        padding-left: 0;
     }
 
     .floating-container-2 {

@@ -67,15 +67,35 @@ const hannahInfo = `
             <div class="row pf-content">
                 <!-- Profile Image -->
                 <div class="col-md-4 pfp-icon text-center">
-                    <img src="assets/img/icon-3.jpg" alt="Profile">
+                    <img src="assets/img/slide-1.jpg" alt="Profile">
                 </div>
                 <!-- Details -->
                 <div class="col-md-8 pf-details">
-                    <h4 class="fw-bold">hannah guevarra</h4>
-                    <p class="mb-1"><strong>ID Number:</strong> 123456789</p>
-                    <p class="mb-1"><strong>Role:</strong> Web Developer</p>
-                    <p class="mb-1"><strong>Department:</strong> IT</p>
-                    <p class="mb-1"><strong>Expiration Date:</strong> 12/31/2025</p>
+                    <p>
+                        <span class="label">Name</span>
+                        <span class="value">hana</span>
+                    </p>
+                    <div class="line"></div>
+                    <p>
+                        <span class="label">Birthday</span>
+                        <span class="value">09-12-2002</span>
+                    </p>
+                    <div class="line"></div>
+                    <p>
+                        <span class="label">Course</span>
+                        <span class="value">BSITWMA</span>
+                    </p>
+                    <div class="line"></div>
+                    <p>
+                        <span class="label">Motto</span>
+                        <span class="value">subomoto</span>
+                    </p>
+                    <div class="line"></div>
+                    <div class="signature">
+                        <p class="sign">Hannah G</p>
+                        <div class="signature-line"></div>
+                        <p class="signature-label">Signature</p>
+                    </div>
                 </div>
             </div>
         </div>

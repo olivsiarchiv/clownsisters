@@ -60,17 +60,18 @@ const hannahInfo = `
                 </div>
                 <div class="col text-end">
                     <h1 class="pf-header-title">Identification Card</h1>
+                    <h4 class="pf-header-subtitle">NO.202509122002</h4>
                 </div>
             </div>
             <!-- Content Section -->
             <div class="row pf-content">
                 <!-- Profile Image -->
                 <div class="col-md-4 pfp-icon text-center">
-                    <img src="assets/img/icon-1.jpg" alt="Profile">
+                    <img src="assets/img/icon-3.jpg" alt="Profile">
                 </div>
                 <!-- Details -->
                 <div class="col-md-8 pf-details">
-                    <h4 class="fw-bold">[name here]</h4>
+                    <h4 class="fw-bold">hannah guevarra</h4>
                     <p class="mb-1"><strong>ID Number:</strong> 123456789</p>
                     <p class="mb-1"><strong>Role:</strong> Web Developer</p>
                     <p class="mb-1"><strong>Department:</strong> IT</p>

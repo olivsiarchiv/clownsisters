@@ -309,8 +309,9 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0 auto;
+    padding: 1rem;
     width: calc(100% - 2rem);
-    max-width: 600px;
+    max-width: 570px;
 }
 
 .modal-content {
@@ -359,9 +360,15 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.pf-logo img {
-    width: 80px;
+.pf-logo {
+    width: 120px;
     height: 50px;
+    overflow: hidden;
+}
+
+.pf-logo img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -369,28 +376,53 @@ body {
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     color: white;
-    font-size: clamp(1.5rem, 2.2vw, 1.7rem);
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
     text-align: right;
     margin: 0;
+    line-height: 0.7;
+}
+
+.pf-header-subtitle {
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: white;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);;
+    text-align: right;
+    margin: 0;
+    line-height: 0.7;
+}
+
+.pfp-icon {
+    width: 130px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
 }
 
 .pfp-icon img{
     width: 100%;
-    height: 200px;
-    max-width: 180px;
+    height: 100%;
     object-fit: cover;
-    overflow: hidden;
-    border: 2px solid black;
+}
+
+.pf-details {
+    padding: 5px 0 5px 20px;
 }
 
 .pf-details h4 {
     margin-bottom: 0.5rem;
     font-family: 'VT323', monospace;
-    font-size: clamp(1.5rem, 2.8vw, 3rem);
+    font-size: clamp(1.5rem, 2.2vw, 1.7rem);
     text-transform: uppercase;
 }
 
 .pf-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: white;
     border-left: 3px solid black;
     border-right: 3px solid black;

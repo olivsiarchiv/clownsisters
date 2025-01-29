@@ -71,12 +71,29 @@ body {
     margin-right: -16px;
 }
 
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
 .nav-link {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
-    padding: 0 20px;
+    padding: 3px;
     font-family: 'VT323', monospace;
+    white-space: nowrap;
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
 }
 
 .nav-link:hover {
@@ -85,10 +102,20 @@ body {
     border-radius: 8px;
 }
 
+.nav-item {
+    margin: 0 20px;
+}
+
+.navbar-nav .nav-link.active {
+    color: #efbccf;
+    background-color: black;
+    border-radius: 8px;
+}
+
 .navbar-toggler.custom-toggler {
     display: flex;
     justify-content: center;
-    width: calc(100% - 2rem);
+    width: 100%;
     max-width: 1000px;
     border: 2px solid #000;
     border-radius: 8px;
@@ -120,12 +147,10 @@ body {
 }
   
 .navbar-toggler-icon span {
-    content: '';
     display: block;
     width: 25px;
     height: 3px;
     background-color: #efbccf;
-    margin: 5px 0;
     border-radius: 2px;
 }
 
@@ -138,12 +163,6 @@ body {
 .nav-spacing .nav-link {
     font-size: clamp(1.5rem, 1.8vw, 3.5rem);
     white-space: nowrap;
-}
-
-.navbar-nav .nav-link.active {
-    color: #efbccf;
-    background-color: black;
-    border-radius: 8px;
 }
 
 .floating-container-2 {
@@ -341,10 +360,11 @@ body {
 
 .footer {
     background: #efbccf;
-    border-top: 3px solid black;
+    /* border-top: 3px solid black;
     border-left: 3px solid black;
-    border-right: 3px solid black;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-right: 3px solid black; */
+    border: 3px solid black;
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
     margin: 1rem auto;
     padding: 1rem 1rem 0 1rem;
     width: calc(100% - 2rem);
@@ -594,7 +614,7 @@ body {
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
     .navbar-collapse {
       text-align: center;
     }

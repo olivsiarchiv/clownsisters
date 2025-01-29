@@ -22,7 +22,7 @@ function loadContent(section) {
     }
 }
 
-function showModal(name, content) {
+function showModal(event, name, content) {
     const modalTitle = document.querySelector('#myModal .modal-title');
     const modalBody = document.querySelector('#myModal .modal-body');
 
@@ -32,13 +32,24 @@ function showModal(name, content) {
     const myModal = new bootstrap.Modal(document.getElementById('myModal'));
     myModal.show();
 
-    const links = document.querySelectorAll('.cs-name-link');
-    links.forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('.cs-name-link').forEach(link => {
+        link.classList.remove('active');
+    });
 
-    const activeLink = document.querySelector(`#link-${name}`);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
+    event.target.classList.add('active');
+
+    const modalElement = document.getElementById('myModal');
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        document.querySelectorAll('.cs-name-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        const videos = modalElement.querySelectorAll('video');
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }, { once: true });
 }
 
 const marciaInfo = `

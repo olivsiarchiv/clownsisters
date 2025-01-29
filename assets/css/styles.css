@@ -192,8 +192,8 @@ body {
 .carousel-fixed {
     flex: 0 0 40%;
     max-width: 40%;
-    max-height: 500px;
-    height: calc(100vh - 100px);
+    height: 60vh;
+    min-height: 500px;
     overflow: hidden;
     border: 3px solid black;
     border-radius: 10px;
@@ -228,15 +228,20 @@ body {
     border: 10px;
 }
 
-/* .carousel-inner {
-    margin: 0;
-    padding: 0;
-} */
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+}
 
 .carousel-inner img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #carouselExampleIndicators {
@@ -275,24 +280,56 @@ body {
     border: 3px solid black;
     border-radius: 10px;
     background: white;
-    padding: 20px;
+    padding: 20px 20px 8px 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     font-family: 'VT323', monospace;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .blocks-content-1 h1 {
     font-size: clamp(30px, 4vw, 40px);
-    padding-bottom: 0.3rem;
     padding-top: 2.5rem;
 }
 
 .blocks-content-1 p {
     font-size: clamp(16px, 2vw, 20px);
+    line-height: 1;
 }
 
 .blocks-content-2 {
-    font-family: 'VT323', monospace;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    height: 25vh;
+    min-height: 186px;
+    max-height: 93px;
+}
+
+.blocks-content-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blocks-content-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.blocks-content-col {
+    flex: 1 1 33.33%;
+    max-width: 33.33%;
 }
 
 .hello {
@@ -310,13 +347,13 @@ body {
 
 .home-button {
     border: 3px solid black;
-    border-radius: 10px;
+    border-radius: 60px;
     background: #efbccf;
-    padding: 10px 20px;
+    padding: 5px 40px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
     font-family: 'VT323', monospace;
-    font-size: clamp(20px, 2vw, 30px);
+    font-size: clamp(15px, 1.7vw, 20px);
     text-transform: uppercase;
     text-decoration: none;
     color: white;
@@ -360,11 +397,7 @@ body {
 
 .footer {
     background: #efbccf;
-    /* border-top: 3px solid black;
-    border-left: 3px solid black;
-    border-right: 3px solid black; */
     border: 3px solid black;
-    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
     margin: 1rem auto;
     padding: 1rem 1rem 0 1rem;
     width: calc(100% - 2rem);
@@ -514,7 +547,6 @@ body {
 
 .pf-details p {
     margin: 3px 0;
-    /* font-size: 16px; */
     display: flex;
     justify-content: space-between;
 }
@@ -614,7 +646,7 @@ body {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .navbar-collapse {
       text-align: center;
     }

@@ -22,6 +22,16 @@ function loadContent(section) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutButton = document.getElementById("about-us");
+    
+    if (aboutButton) {
+        aboutButton.addEventListener("click", function () {
+            loadContent("about");
+        });
+    }
+});
+
 function showModal(event, name, content) {
     const modalTitle = document.querySelector('#myModal .modal-title');
     const modalBody = document.querySelector('#myModal .modal-body');

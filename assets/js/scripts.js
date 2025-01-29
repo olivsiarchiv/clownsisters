@@ -36,7 +36,7 @@ function showModal(event, name, content) {
     const modalTitle = document.querySelector('#myModal .modal-title');
     const modalBody = document.querySelector('#myModal .modal-body');
 
-    modalTitle.innerHTML = `${name}'s Personal Information`;
+    modalTitle.innerHTML = `${name}'s info ᯓᡣ𐭩`;
     modalBody.innerHTML = content;
 
     const myModal = new bootstrap.Modal(document.getElementById('myModal'));

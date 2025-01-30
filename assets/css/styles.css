@@ -395,6 +395,26 @@ body {
     padding-right: 0;
 }
 
+.playlist-content {
+    margin: 0.8rem auto;
+    padding: 0.5rem auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: first baseline;
+}
+
+.gallery-content {
+    margin: 0.8rem auto;
+    padding: 0.5rem auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: first baseline;
+}
+
 .footer {
     background: #efbccf;
     border: 3px solid black;

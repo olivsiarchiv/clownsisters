@@ -9,22 +9,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/scripts.js" defer></script>
 
     <title>Clown Sisters</title>
 
 </head>
 <body class="d-flex flex-column vh-100">
+
+    <!-- splash screen -->
     <div class="splash-screen" id="splash-screen">
         <div class="splash-container">
             <h1 class="splash-message" id="splash-message"></h1>
         </div>
     </div>
+
+    <!-- main header -->
     <div class="container floating-container">
         <div class="row d-flex align-items-center">
-            <div class="col web-logo">
+            <div class="col">
                 <h1><small>✦</small> clown sisters <small>✦</small></h1>
-                <!-- <img src="assets/img/cs-logo.png" alt="Logo"> -->
             </div>
             <div class="col text-end">
                 <div class="d-flex justify-content-end cs-name-link">
@@ -34,6 +37,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- navbar -->
         <div class="row navbar-row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg">
@@ -64,6 +69,8 @@
             </div>
         </div>
     </div>
+
+    <!-- homepage -->
     <div class="container floating-container-2">
         <div class="container-fluid home-content" id="home">
             <div class="row">
@@ -78,22 +85,22 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="assets/img/slide-1.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-1.jpg" class="d-block w-100" alt="Slide 1">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/img/slide-2.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-2.jpg" class="d-block w-100" alt="Slide 2">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/img/slide-3.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-3.jpg" class="d-block w-100" alt="Slide 3">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/img/slide-4.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-4.jpg" class="d-block w-100" alt="Slide 4">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/img/slide-5.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-5.jpg" class="d-block w-100" alt="Slide 5">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/img/slide-6.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/slide-6.jpg" class="d-block w-100" alt="Slide 6">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -105,6 +112,7 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+
                 <div class="home-content-blocks">
                     <div class="mb-2 blocks-content-1">
                         <div class="hello">HELLO THERE!</div>
@@ -114,9 +122,6 @@
                         </p>
                         <button class="home-button text-center" id="about-us">Get to know more about us!</button>
                     </div>
-                    <!-- <div class="blocks-content-1">
-                        <h1 class="text-center">photo here</h1>
-                    </div> -->
                     <div class="row blocks-content-row">
                         <div class="col-4 blocks-content-col pe-1">
                             <div class="blocks-content-2">
@@ -137,6 +142,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- about us -->
         <div class="container-fluid about-content" id="about">
             <div class="row">
                 <div class="col-lg-8 video-container">
@@ -144,6 +151,7 @@
                         <source src="assets/img/vid-5.mp4" type="video/mp4">
                     </video>
                 </div>
+
                 <div class="about-content-blocks">
                     <div class="mb-2 blocks-content-1">
                         <div class="hello">ABOUT US</div>
@@ -155,26 +163,25 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </div>
-                    <!-- <div class="mb-2 blocks-content-1">
-                        <div class="hello">ABOUT US</div>
-                        <h1 class="fw-bold text-center">ABOUT US</h1>
-                        <p class="text-align-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </div> -->
                 </div>
             </div>
         </div>
+
+        <!-- playlist -->
         <div class="container-fluid playlist-content" id="playlist">
             <h1 class="fw-bold text-center">playlist</h1>
             <p class="text-center"><b>toni fowler songs medley</b></p>
         </div>
+
+        <!-- gallery -->
         <div class="container-fluid gallery-content" id="gallery">
             <h1 class="fw-bold text-center">gallery</h1>
             <p class="text-center"><b>grids here</b></p>
         </div>
+
     </div>
 
+    <!-- footer -->
     <div class="footer mt-auto sticky-bottom text-center py-1">
         <p class="mb-0">&copy; 2025 by <a href="https://github.com/olivsiarchiv" class="text-decoration-none">olivsiarchiv</a></p>
     </div>
@@ -191,10 +198,10 @@
                 </div>
                 <div class="modal-footer">
                     <h1></h1>
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><small>Close</small></button> -->
                 </div>
             </div>
         </div>
     </div>
+    
 </body>
 </html>

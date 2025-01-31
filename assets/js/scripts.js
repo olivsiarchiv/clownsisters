@@ -63,13 +63,16 @@ function showModal(event, name, content) {
 }
 
 const marciaInfo = `
-    <p class="text-align-justify fw-bold p-2">
-        test
-    </p>
-    <video autoplay loop playsinline width="100%" controls>
-        <source src="assets/img/vid-3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>`;
+    <div class="container p-0">
+        <p class="text-align-justify fw-bold p-2">
+            test
+        </p>
+        <video autoplay loop playsinline width="100%" controls>
+            <source src="assets/img/vid-3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>`;
+
 const hannahInfo = `
     <!-- PER MEMBER MODAL CONTENT -->
     <div class="container id-card-container p-0">
@@ -118,16 +121,33 @@ const hannahInfo = `
         </div>
     </div>`;
 const marielleInfo = `
-    <div class="text-center p-2">
-        <p class="fw-bold" style="font-size: 21px; display: inline;">Tayo ay nasa</p>
-        <p style="font-family: 'Corinthia', serif; font-size: 21px; font-style: italic; font-weight: bold; color: red; display: inline;">✨fine dining restaurant✨</p>
-    </div>
-    <video autoplay loop playsinline width="100%" controls>
-       <source src="assets/img/vid-1.mp4" type="video/mp4">
-       Your browser does not support the video tag.
-    </video>
-    <div class="p-2">
-        <p class="fw-bold text-align-justify" style="font-size: 15px; display: inline;">nung dinner 🥩🍜☕️ ano nangyari? 🤨🫣💀 may inaabot ka kay papi 🫳🏻🤔💅🏻 PUTANGINA NALAGLAG ⁉️😤 YUNG BISKWIT tama?! 🥔🫓👍🏻 Tayo ay nasa ✨✨fine DINING restaurant✨✨ diba? so yung pag ka skwater natin 🤩🤙🏿💩 iwan natin sa bahay. 🍻🏠🍆 pag nalaglag andun 😬🙈‼️ sina miss vina sila doc yappy. 🧝🏻‍♀️👨‍⚕️👀 imbis na "ay sorry sorry" 🙏🏻🫦😿 ano naging reaction 🤠🫥👊🏻 PUTANGINA NETO 🤦🏻‍♀️🤬🔥 NAGBIBIGAY LANG GANYAN PA! 😤🖕🏻🦶🏻 EH kinang ina mo naman 🧞‍♂️🙄🐊 nasa restaurant ka naman na sosyal 👨🏻‍🍳🧍🏻‍♀️🦦, kelan moko narinig 🐣📆👂 na PUKINGINA NAMAN EH!  🦪🍑⏳ nag gaganyan ako sa ke ms vina? 👩🏻‍🦯‍➡️🤰🏻👁️ never. 👎🏻🙅🏻‍♀️ ang tawag dun pakikisama 💃🏻🤳🏻💆🏻‍♀️ hindi ka naman magiging peke eh 😃😇 pero puta umadjust ka naman sa sitwasyon 🥺🤌🏻🧚🏻 TANGINA NAMAN EH 😡😤🗯️ NAGBIBIGAYBIGAY LANG AKO EH! 🤬👨🏻‍🦲🦭 napaganun ako sayo oh 👁️👄👁️ay putangina ni mikay oh 🪳🌛💨 ay gago nakaganun ako oh👁️👄👁️ nakatingin lang ako sayo ng ganyan. 👀🌬️💥 tas nung sinabi mo 🤾🏻‍♀️🥊🤦🏻‍♀️ ay sori sori sori po sori po 🗽☹️✊🏻 nung gumilid kayo 🫤👭🏻 tsaka, tsaka ako kumalma 😌🤰🏻🦥 tinignan ako ni vince e 🌚🙍🏼‍♂️👩‍❤️‍💋‍👨</p>
+    <div class="container p-0">
+        <div class="text-center">
+            <h1 class="fw-bold d-inline fs-5">Tayo ay nasa</h1>
+            <h1 class="fw-bold d-inline text-danger" style="font-family: 'Corinthia', serif; font-size: 21px; font-style: italic;">
+                ✨fine dining restaurant✨
+            </h1>
+        </div>
+
+        <video autoplay loop playsinline width="100%" controls class="my-2">
+            <source src="assets/img/vid-1.mp4" type="video/mp4">
+        </video>
+
+        <div class="fw-bold text-align-justify px-1">
+            <p style="font-size: 15px; line-height: 1.3;">
+                nung dinner 🥩🍜☕️ ano nangyari? 🤨🫣💀 may inaabot ka kay papi 🫳🏻🤔💅🏻 PUTANGINA NALAGLAG ⁉️😤 YUNG BISKWIT tama?! 🥔🫓👍🏻 
+                Tayo ay nasa <span class="fw-bold text-danger">✨✨fine DINING restaurant✨✨</span> diba? so yung pag ka skwater natin 🤩🤙🏿💩 
+                iwan natin sa bahay. 🍻🏠🍆 pag nalaglag andun 😬🙈‼️ sina miss vina sila doc yappy. 🧝🏻‍♀️👨‍⚕️👀 
+                imbis na "ay sorry sorry" 🙏🏻🫦😿 ano naging reaction 🤠🫥👊🏻 PUTANGINA NETO 🤦🏻‍♀️🤬🔥 NAGBIBIGAY LANG GANYAN PA! 😤🖕🏻🦶🏻 
+                EH kinang ina mo naman 🧞‍♂️🙄🐊 nasa restaurant ka naman na sosyal 👨🏻‍🍳🧍🏻‍♀️🦦, kelan moko narinig 🐣📆👂 
+                na PUKINGINA NAMAN EH! 🦪🍑⏳ nag gaganyan ako sa ke ms vina? 👩🏻‍🦯‍➡️🤰🏻👁️ never. 👎🏻🙅🏻‍♀️ ang tawag dun pakikisama 
+                💃🏻🤳🏻💆🏻‍♀️ hindi ka naman magiging peke eh 😃😇 pero puta umadjust ka naman sa sitwasyon 🥺🤌🏻🧚🏻 TANGINA NAMAN EH 
+                😡😤🗯️ NAGBIBIGAYBIGAY LANG AKO EH! 🤬👨🏻‍🦲🦭 napaganun ako sayo oh 👁️👄👁️ ay putangina ni mikay oh 🪳🌛💨 
+                ay gago nakaganun ako oh 👁️👄👁️ nakatingin lang ako sayo ng ganyan. 👀🌬️💥 tas nung sinabi mo 🤾🏻‍♀️🥊🤦🏻‍♀️ 
+                ay sori sori sori po sori po 🗽☹️✊🏻 nung gumilid kayo 🫤👭🏻 tsaka, tsaka ako kumalma 😌🤰🏻🦥 tinignan ako ni vince e 
+                🌚🙍🏼‍♂️👩‍❤️‍💋‍👨
+            </p>
+        </div>
     </div>`;
 
 function typeMessage(message, elementId, delay = 100, callback = null) {

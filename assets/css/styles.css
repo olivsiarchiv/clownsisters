@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Meddon&display=swap');
 
 body {
@@ -712,10 +711,11 @@ body {
 }
 
 .splash-message {
-    font-size: 2rem;
+    font-size: 30px;
     font-weight: bold;
     font-family: 'VT323', monospace;
     animation: blink 0.6s step-end infinite alternate;
+    line-height: 1;
 }
 
 @keyframes fade-in {

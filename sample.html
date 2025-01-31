@@ -19,17 +19,8 @@
 
         .modal-dialog {
             width: calc(100% - 1rem);
-            /* width: 95%; */
             max-width: 450px;
             margin: 1rem auto;
-            position: relative;
-        }
-
-        .modal-body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
         }
 
         .modal-header {
@@ -77,14 +68,13 @@
             padding: 0;
             font-size: 10px;
             opacity: 1;
-            width: 10px;  /* Set explicit width */
-            height: 10px; /* Set explicit height */
+            width: 10px;
+            height: 10px;
         }
         
         .modal-content {
             background: #fbf1f2;
             border: 3px solid black;
-            margin: auto;
         }
 
         .modal-footer {
@@ -97,13 +87,47 @@
             align-items: center;
         }
 
-        .id-card-container {
+        .flip-card {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateX(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .flip-card-back {
+            transform: rotateX(180deg);
+        }
+
+        .id-card-container-front {
             background-color: #c78ca0;
             border: 3px solid black;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            margin: auto;
-            width: 99%;
-            max-width: 100%;
+            width: 100%;
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -114,21 +138,40 @@
         .id-card-header {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
             width: 100%;
             padding: 0 10px;
         }
 
-        .id-card-body {
+        .id-card-container-back {
+            background-color: #c78ca0;
+            border: 3px solid black;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .id-card-body-front {
             background-color: white;
             color: black;
             width: 100%;
             border-radius: 0 0 12px 12px;
             border-top: 3px solid black;
             padding: 10px 0;
-            text-align: justify;
             display: flex;
-            align-items: center;
+            justify-content: center;
+        }
+
+        .id-card-body-back {
+            background-color: #c78ca0;
+            color: black;
+            width: 100%;
+            border-radius: 0 0 12px 12px;
+            padding: 10px 0;
+            display: flex;
             justify-content: center;
         }
 
@@ -144,25 +187,21 @@
             object-fit: contain;
         }
 
-        .id-header-title {
+        .id-header-title, .id-header-subtitle {
             font-family: 'VT323', monospace;
             text-transform: uppercase;
             color: white;
-            font-size: 25px;
-            text-align: right;
             margin: 0;
+            text-align: right;
             line-height: 0.8;
         }
 
+        .id-header-title {
+            font-size: 25px;
+        }
+
         .id-header-subtitle {
-            font-family: 'VT323', monospace;
-            text-transform: uppercase;
-            font-weight: lighter;
-            color: white;
             font-size: 22px;
-            text-align: right;
-            margin: 0;
-            line-height: 0.8;
         }
 
         .id-card-content {
@@ -170,7 +209,6 @@
             align-items: center;
             justify-content: flex-start;
             flex-wrap: nowrap;
-            overflow-x: hidden;
             width: 100%;
             gap: 15px;
         }
@@ -178,7 +216,6 @@
         .id-card-icon {
             width: 130px;
             height: 150px;
-            overflow: hidden;
             border: 2px solid black;
             margin: 0;
             padding: 0;
@@ -252,6 +289,15 @@
             line-height: 1;
         }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("flipCard").addEventListener("click", function () {
+                this.classList.toggle("flipped");
+            });
+        });
+    </script>
+
 </head>
 <body class="d-flex align-items-center justify-content-center mt-3">
 
@@ -271,51 +317,104 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container id-card-container p-0">
-                        <div class="row id-card-header">
-                            <div class="col-auto id-logo ps-0">
-                                <img src="assets/img/cs-logo.png" alt="Logo">
-                            </div>
-                            <div class="col text-end pe-0">
-                                <h1 class="id-header-title">Identification Card</h1>
-                                <h4 class="id-header-subtitle">NO.202509122002</h4>
-                            </div>
-                        </div>
-                        <div class="row id-card-body w-100">
-                            <div class="row id-card-content w-100">
-                                <div class="col-6 col-md-4 id-card-icon">
-                                    <img src="assets/img/slide-1.jpg" alt="">
+                    <div class="flip-card" id="flipCard">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="container id-card-container-front p-0">
+                                    <div class="row id-card-header">
+                                        <div class="col-auto id-logo ps-0">
+                                            <img src="assets/img/cs-logo.png" alt="Logo">
+                                        </div>
+                                        <div class="col text-end pe-0">
+                                            <h1 class="id-header-title">Identification Card</h1>
+                                            <h4 class="id-header-subtitle">NO.202509122002</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row id-card-body-front w-100">
+                                        <div class="row id-card-content w-100">
+                                            <div class="col-6 col-md-4 id-card-icon">
+                                                <img src="assets/img/slide-1.jpg" alt="">
+                                            </div>
+                                            <div class="col col-md-8 id-card-details">
+                                                <p>
+                                                    <span class="label">Name</span>
+                                                    <span class="value">Hana</span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label">Birthday</span>
+                                                    <span class="value">09-12-2002</span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label">Course</span>
+                                                    <span class="value">BSITWMA</span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label">Motto</span>
+                                                    <span class="value">subomoto</span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <div class="signature">
+                                                    <p class="sign">Hannah G</p>
+                                                    <div class="signature-line"></div>
+                                                    <p class="signature-label">Signature</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col col-md-8 id-card-details">
-                                    <p>
-                                        <span class="label">Name</span>
-                                        <span class="value">Hana</span>
-                                    </p>
-                                    <div class="line"></div>
-                                    <p>
-                                        <span class="label">Birthday</span>
-                                        <span class="value">09-12-2002</span>
-                                    </p>
-                                    <div class="line"></div>
-                                    <p>
-                                        <span class="label">Course</span>
-                                        <span class="value">BSITWMA</span>
-                                    </p>
-                                    <div class="line"></div>
-                                    <p>
-                                        <span class="label">Motto</span>
-                                        <span class="value">subomoto</span>
-                                    </p>
-                                    <div class="line"></div>
-                                    <div class="signature">
-                                        <p class="sign">Hannah G</p>
-                                        <div class="signature-line"></div>
-                                        <p class="signature-label">Signature</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="container id-card-container-back p-0">
+                                    <div class="row id-card-header">
+                                        <div class="col-auto id-logo ps-0">
+                                            
+                                        </div>
+                                        <div class="col text-end pe-0">
+                                            <h1></h1>
+                                        </div>
+                                    </div>
+                                    <div class="row id-card-body-back w-100">
+                                        <div class="row id-card-content w-100">
+                                            <div class="col-6 col-md-4 id-card-icon">
+                                                
+                                            </div>
+                                            <div class="col col-md-8 id-card-details">
+                                                <p>
+                                                    <span class="label"></span>
+                                                    <span class="value"></span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label"></span>
+                                                    <span class="value"></span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label"></span>
+                                                    <span class="value"></span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <p>
+                                                    <span class="label"></span>
+                                                    <span class="value"></span>
+                                                </p>
+                                                <div class="line"></div>
+                                                <div class="signature">
+                                                    <p class="sign"></p>
+                                                    <div class="signature-line"></div>
+                                                    <p class="signature-label"></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <h5 class="text-center" style="font-style: italic; font-size: 10px;">click the card</h5>
                 </div>
                 <div class="modal-footer">
                     <h1></h1>

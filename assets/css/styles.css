@@ -402,30 +402,72 @@ body {
 }
 
 .modal-dialog {
+    width: calc(100% - 1rem);
+    max-width: 450px;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: #efbccf;
+    border-bottom: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 2px 20px;
+}
+
+.modal-title {
+    font-family: 'VT323', monospace;
+}
+
+.modal-btn-close {
+    background-color: #fbf1f2;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 30px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 1rem;
-    width: calc(100% - 2rem);
-    max-width: 570px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.modal-btn-close:hover {
+    background-color: #c78ca0;
+}
+
+.modal-btn-close:hover .btn-close {
+    filter: invert(1);
+}
+
+.modal-btn-close .btn-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
 }
 
 .modal-content {
     background: #fbf1f2;
     border: 3px solid black;
     margin: auto;
-    width: 90%;
-}
-
-.modal-header {
-    background-color: #efbccf;
-    border-bottom: 3px solid black;
-}
-
-.modal-title {
-    font-family: 'VT323', monospace;
 }
 
 .modal-footer {
@@ -438,73 +480,85 @@ body {
     align-items: center;
 }
 
-.modal-header .btn-close {
-    color: black;
-    background-color: white;
-    border-radius: 5px;
-    border: 2px solid black;
-    width: 12px;
-    height: 12px;
-    padding: 4px 10px;
-    font-size: 10px;
-}
-
-.pf-header {
-    background: #c78ca0;
+.id-card-container {
+    background-color: #c78ca0;
     border: 3px solid black;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    width: 99%;
+    max-width: 100%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.pf-logo {
+.id-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.id-card-body {
+    background-color: white;
+    color: black;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    border-top: 3px solid black;
+    padding: 10px 0;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.id-logo {
     width: 120px;
     height: 50px;
     overflow: hidden;
 }
 
-.pf-logo img {
+.id-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.pf-header-title {
+.id-header-title {
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     color: white;
-    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-size: 25px;
     text-align: right;
     margin: 0;
-    line-height: 0.7;
+    line-height: 0.8;
 }
 
-.pf-header-subtitle {
+.id-header-subtitle {
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     font-weight: lighter;
     color: white;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);;
+    font-size: 22px;
     text-align: right;
     margin: 0;
-    line-height: 0.7;
+    line-height: 0.8;
 }
 
-.pf-content {
+.id-card-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: white;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    padding: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    gap: 15px;
 }
 
-.pfp-icon {
+.id-card-icon {
     width: 130px;
     height: 150px;
     overflow: hidden;
@@ -513,74 +567,72 @@ body {
     padding: 0;
 }
 
-.pfp-icon img{
+.id-card-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.pf-details {
-    padding: 5px 0 5px 20px;
-    line-height: 0.7;
+.id-card-details {
+    flex: 1;
+    padding-right: 0;
+    padding-left: 0;
 }
 
-.pf-details p {
-    margin: 3px 0;
+.id-card-details p {
     display: flex;
     justify-content: space-between;
-}
-
-.pf-details .label {
+    margin: 3px 0;
     font-family: 'VT323', monospace;
-    font-weight: bold;
-    font-size: clamp(1.2rem, 1.8vw, 1.4rem);
 }
 
-.pf-details .value {
+.id-card-details .label {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.id-card-details .value {
+    font-weight: bold;
     text-align: right;
     text-transform: uppercase;
-    font-family: 'VT323', monospace;
-    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    font-size: 21px;
+    line-height: 1;
 }
 
-.pf-details .line {
+.id-card-details .line {
     border-bottom: 1px dotted black;
-    margin: 3px 0;
+    margin: 0;
 }
 
-.pf-details .signature {
-    text-align: center;
-    padding-top: 0;
-}
-
-.pf-details .signature .sign {
+.id-card-details .signature .sign {
     align-items: center;
     justify-content: center;
     font-family: "Meddon", serif;
-    font-size: 20px;
+    font-size: 15px;
     margin: 10px 0 0;
     padding-top: 0;
-    z-index: 1;
     margin-bottom: 0;
+    line-height: 1;
 }
 
-.pf-details .signature-line {
-    border-bottom: 1px solid black;
+.id-card-details .signature-line {
+    border-bottom: 1px dotted black;
     width: 60%;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
 }
 
-.pf-details .signature-label {
+.id-card-details .signature-label {
     font-family: 'VT323', monospace;
     align-items: center;
     justify-content: center;
-    margin: 1px 0;
-    padding: 1px 0;
-    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
     text-transform: uppercase;
     color: black;
+    line-height: 1;
 }
 
 
@@ -608,20 +660,6 @@ body {
 
     .floating-container-2 {
         justify-content: center;
-    }
-
-    .pf-content {
-        flex-wrap: wrap;
-        padding: 10px;
-    }
-
-    .pf-details {
-        text-align: left;
-        padding: 10px;
-    }
-
-    .pf-details p {
-        text-align: right;
     }
 }
 

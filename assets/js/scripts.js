@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function showModal(event, name, content) {
-    const modalTitle = document.querySelector('#myModal .modal-title');
-    const modalBody = document.querySelector('#myModal .modal-body');
+    const modalTitle = document.querySelector('#exampleModal .modal-title');
+    const modalBody = document.querySelector('#exampleModal .modal-body');
 
     modalTitle.innerHTML = `${name}'s info ᯓᡣ𐭩`;
     modalBody.innerHTML = content;
 
-    const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-    myModal.show();
+    const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    exampleModal.show();
 
     document.querySelectorAll('.cs-name-link').forEach(link => {
         link.classList.remove('active');
@@ -48,7 +48,7 @@ function showModal(event, name, content) {
 
     event.target.classList.add('active');
 
-    const modalElement = document.getElementById('myModal');
+    const modalElement = document.getElementById('exampleModal');
     modalElement.addEventListener('hidden.bs.modal', function () {
         document.querySelectorAll('.cs-name-link').forEach(link => {
             link.classList.remove('active');
@@ -72,29 +72,25 @@ const marciaInfo = `
     </video>`;
 const hannahInfo = `
     <!-- PER MEMBER MODAL CONTENT -->
-    <div class="pf-modal d-flex justify-content-center align-items-center">
-        <div class="container">
-            <!-- Header Section -->
-            <div class="pf-header row d-flex align-items-center px-2">
-                <div class="col-auto pf-logo d-flex justify-content-start">
-                    <img src="assets/img/cs-logo.png" alt="Logo">
-                </div>
-                <div class="col text-end">
-                    <h1 class="pf-header-title">Identification Card</h1>
-                    <h4 class="pf-header-subtitle">NO.202509122002</h4>
-                </div>
+    <div class="container id-card-container p-0">
+        <div class="row id-card-header">
+            <div class="col-auto id-logo ps-0">
+                <img src="assets/img/cs-logo.png" alt="Logo">
             </div>
-            <!-- Content Section -->
-            <div class="row pf-content">
-                <!-- Profile Image -->
-                <div class="col-md-4 pfp-icon text-center">
-                    <img src="assets/img/slide-1.jpg" alt="Profile">
+            <div class="col text-end pe-0">
+                <h1 class="id-header-title">Identification Card</h1>
+                <h4 class="id-header-subtitle">NO.202509122002</h4>
+            </div>
+        </div>
+        <div class="row id-card-body w-100">
+            <div class="row id-card-content w-100">
+                <div class="col-6 col-md-4 id-card-icon">
+                    <img src="assets/img/slide-1.jpg" alt="">
                 </div>
-                <!-- Details -->
-                <div class="col-md-8 pf-details">
+                <div class="col col-md-8 id-card-details">
                     <p>
                         <span class="label">Name</span>
-                        <span class="value">hana</span>
+                        <span class="value">Hana</span>
                     </p>
                     <div class="line"></div>
                     <p>

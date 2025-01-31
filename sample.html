@@ -20,14 +20,58 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         .modal-header {
             background-color: #efbccf;
             border-bottom: 3px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 2px 20px;
         }
 
+        .modal-title {
+            font-family: 'VT323', monospace;
+        }
+
+        .modal-btn-close {
+            background-color: #fbf1f2;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+
+        .modal-btn-close:hover {
+            background-color: #c78ca0;
+        }
+        
+        .modal-btn-close:hover .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-btn-close .btn-close {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            opacity: 1;
+            width: 10px;  /* Set explicit width */
+            height: 10px; /* Set explicit height */
+        }
+        
         .modal-content {
             background: #fbf1f2;
             border: 3px solid black;
@@ -47,6 +91,7 @@
         .id-card-container {
             background-color: #c78ca0;
             border: 3px solid black;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             margin: auto;
             width: 99%;
             max-width: 100%;
@@ -210,9 +255,11 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header py-2">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Title</h1>
+                <button type="button" class="modal-btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="btn-close"></span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="container id-card-container p-0">

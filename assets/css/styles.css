@@ -404,14 +404,6 @@ body {
     width: calc(100% - 1rem);
     max-width: 450px;
     margin: 1rem auto;
-    position: relative;
-}
-
-.modal-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
 }
 
 .modal-header {
@@ -479,13 +471,48 @@ body {
     align-items: center;
 }
 
-.id-card-container {
+.flip-card {
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
+.id-card-container-front {
     background-color: #c78ca0;
     border: 3px solid black;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin: auto;
-    width: 99%;
-    max-width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -493,104 +520,96 @@ body {
     flex-direction: column;
 }
 
-.id-card-header {
+.id-card-header-front {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     width: 100%;
     padding: 0 10px;
 }
 
-.id-card-body {
+.id-card-body-front {
     background-color: white;
     color: black;
     width: 100%;
+    height: 100%;
     border-radius: 0 0 12px 12px;
     border-top: 3px solid black;
     padding: 10px 0;
-    text-align: justify;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.id-logo {
+.id-logo-front {
     width: 120px;
     height: 50px;
     overflow: hidden;
 }
 
-.id-logo img {
+.id-logo-front img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.id-header-title {
+.id-header-title-front, .id-header-subtitle-front {
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     color: white;
+    margin: 0;
+    text-align: right;
+    line-height: 0.8;
+}
+
+.id-header-title-front {
     font-size: 25px;
-    text-align: right;
-    margin: 0;
-    line-height: 0.8;
 }
 
-.id-header-subtitle {
-    font-family: 'VT323', monospace;
-    text-transform: uppercase;
-    font-weight: lighter;
-    color: white;
+.id-header-subtitle-front {
     font-size: 22px;
-    text-align: right;
-    margin: 0;
-    line-height: 0.8;
 }
 
-.id-card-content {
+.id-card-content-front {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    overflow-x: hidden;
     width: 100%;
     gap: 15px;
 }
 
-.id-card-icon {
+.id-card-icon-front {
     width: 130px;
     height: 150px;
-    overflow: hidden;
     border: 2px solid black;
     margin: 0;
     padding: 0;
 }
 
-.id-card-icon img {
+.id-card-icon-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.id-card-details {
+.id-card-details-front {
     flex: 1;
     padding-right: 0;
     padding-left: 0;
 }
 
-.id-card-details p {
+.id-card-details-front p {
     display: flex;
     justify-content: space-between;
     margin: 3px 0;
     font-family: 'VT323', monospace;
 }
 
-.id-card-details .label {
+.id-card-details-front .label {
     font-size: 17px;
     line-height: 1;
 }
 
-.id-card-details .value {
+.id-card-details-front .value {
     font-weight: bold;
     text-align: right;
     text-transform: uppercase;
@@ -598,12 +617,12 @@ body {
     line-height: 1;
 }
 
-.id-card-details .line {
+.id-card-details-front .line {
     border-bottom: 1px dotted black;
     margin: 0;
 }
 
-.id-card-details .signature .sign {
+.id-card-details-front .signature .sign {
     align-items: center;
     justify-content: center;
     font-family: "Meddon", serif;
@@ -614,7 +633,7 @@ body {
     line-height: 1;
 }
 
-.id-card-details .signature-line {
+.id-card-details-front .signature-line {
     border-bottom: 1px dotted black;
     width: 60%;
     margin-top: 0;
@@ -622,7 +641,7 @@ body {
     margin-right: auto;
 }
 
-.id-card-details .signature-label {
+.id-card-details-front .signature-label {
     font-family: 'VT323', monospace;
     align-items: center;
     justify-content: center;
@@ -632,6 +651,158 @@ body {
     text-transform: uppercase;
     color: black;
     line-height: 1;
+}
+
+.id-card-container-back {
+    background-color: #c78ca0;
+    border: 3px solid black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.id-card-body-back {
+    background-color: #c78ca0;
+    color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 12px 12px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.id-card-logo-back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto;
+}
+
+.id-card-logo-back img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #c78ca0;
+    width: 400px;
+    margin: auto;
+}
+
+.audio-title {
+    text-align: center;
+    font-size: 14px;
+    width: 100%; 
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 95%;
+}
+
+.audio-player .btn {
+    color: #c78ca0;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.audio-player .time-display {
+    font-size: 10px;
+    white-space: nowrap;
+    color: grey;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 15px;
+    outline: none;
+    position: relative;
+}
+
+input[type="range"].progress-edit {
+    background: linear-gradient(to right, #c78ca0 0%, #c78ca0 var(--value, 0%), #ddd var(--value, 0%));
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 12px;
+    background: #efbccf;
+    border: none;
+    cursor: pointer;
+    margin-top: -3.5px;
+    position: relative;
+    z-index: 2;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 5px;
+    height: 12px;
+    background: #efbccf;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-30%);
+    z-index: 2;
+}
+
+input[type="range"]::-ms-thumb {
+    width: 5px;
+    height: 12px;
+    background: #efbccf;
+    border: none;
+    cursor: pointer;
+    margin-top: -3.5px;
+    z-index: 2;
+}
+
+input[type="range"]::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: var(--value);
+    background-color: #c78ca0;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    border-radius: 15px;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 5px;
+    border-radius: 15px;
+}
+
+input[type="range"]::-ms-track {
+    height: 5px;
+    border-radius: 15px;
 }
 
 

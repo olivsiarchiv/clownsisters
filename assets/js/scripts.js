@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadContent("about");
         });
     }
+
 });
 
 function showModal(event, name, content) {
@@ -38,6 +39,14 @@ function showModal(event, name, content) {
 
     modalTitle.innerHTML = `${name}'s info ᯓᡣ𐭩`;
     modalBody.innerHTML = content;
+    initializeAudioPlayer();
+
+    const flipCard = modalBody.querySelector('#flipCard');
+    if (flipCard) {
+        flipCard.addEventListener("click", function () {
+            this.classList.toggle("flipped");
+        });
+    }
 
     const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'));
     exampleModal.show();
@@ -59,94 +68,369 @@ function showModal(event, name, content) {
             video.pause();
             video.currentTime = 0;
         });
+
+        const audio = document.getElementById("audio");
+        if (audio) {
+            audio.pause(); // Pause the audio
+            audio.currentTime = 0; // Reset the audio to the beginning
+        }
+        
     }, { once: true });
 }
 
-const marciaInfo = `
-    <div class="container p-0">
-        <p class="text-align-justify fw-bold p-2">
-            test
-        </p>
-        <video autoplay loop playsinline width="100%" controls>
-            <source src="assets/img/vid-3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>`;
+function initializeAudioPlayer() {
+    const audio = document.getElementById("audio");
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const progress = document.getElementById('progress');
+    const volume = document.getElementById('volume');
+    const muteBtn = document.getElementById('muteBtn');
+    const currentTimeDisplay = document.getElementById('current-time');
+    const durationDisplay = document.getElementById('duration');
 
-const hannahInfo = `
-    <!-- PER MEMBER MODAL CONTENT -->
-    <div class="container id-card-container p-0">
-        <div class="row id-card-header">
-            <div class="col-auto id-logo ps-0">
-                <img src="assets/img/cs-logo.png" alt="Logo">
-            </div>
-            <div class="col text-end pe-0">
-                <h1 class="id-header-title">Identification Card</h1>
-                <h4 class="id-header-subtitle">NO.202509122002</h4>
-            </div>
-        </div>
-        <div class="row id-card-body w-100">
-            <div class="row id-card-content w-100">
-                <div class="col-6 col-md-4 id-card-icon">
-                    <img src="assets/img/slide-1.jpg" alt="">
+    // Check if audio and controls exist
+    if (!audio || !playBtn || !pauseBtn || !progress || !volume || !muteBtn || !currentTimeDisplay || !durationDisplay) {
+        console.error("One or more audio player elements are missing.");
+        return; // Exit the function if any element is missing
+    }
+
+    // Reset audio player UI
+    progress.style.setProperty('--value', '0%');
+    volume.style.setProperty('--value', '20%');
+    playBtn.style.display = 'block';
+    pauseBtn.style.display = 'none';
+
+    // Event listeners for audio controls
+    playBtn.addEventListener('click', function() {
+        audio.play();
+        playBtn.style.display = 'none';
+        pauseBtn.style.display = 'block';
+    });
+
+    pauseBtn.addEventListener('click', function() {
+        audio.pause();
+        pauseBtn.style.display = 'none';
+        playBtn.style.display = 'block';
+    });
+
+    audio.addEventListener('ended', function() {
+        pauseBtn.style.display = 'none';
+        playBtn.style.display = 'block';
+        progress.value = 0;
+        currentTimeDisplay.textContent = '00:00';
+    });
+
+    audio.addEventListener('loadedmetadata', function() {
+        durationDisplay.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+        const value = (audio.currentTime / audio.duration) * 100;
+        progress.value = value;
+        progress.style.setProperty('--value', value + '%');
+        currentTimeDisplay.textContent = formatTime(audio.currentTime);
+    });
+
+    progress.addEventListener('input', function() {
+        const time = progress.value * audio.duration / 100;
+        audio.currentTime = time;
+        progress.style.setProperty('--value', progress.value + '%');
+    });
+
+    volume.addEventListener('input', function() {
+        audio.volume = volume.value / 100;
+        volume.style.setProperty('--value', volume.value + '%');
+    });
+
+    muteBtn.addEventListener('click', function() {
+        audio.muted = !audio.muted;
+        muteBtn.innerHTML = audio.muted ? 
+            '<i class="fas fa-volume-mute"></i>' : 
+            '<i class="fas fa-volume-up"></i>';
+    });
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+const marciaInfo = `
+    <div class="flip-card" id="flipCard">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="container id-card-container-front p-0">
+                    <div class="row id-card-header-front">
+                        <div class="col-auto id-logo-front ps-0">
+                            <img src="assets/img/cs-logo.png" alt="Logo">
+                        </div>
+                        <div class="col text-end pe-0">
+                            <h1 class="id-header-title-front">Identification Card</h1>
+                            <h4 class="id-header-subtitle-front">NO.202508282002</h4>
+                        </div>
+                    </div>
+                    <div class="row id-card-body-front w-100">
+                        <div class="row id-card-content-front w-100">
+                            <div class="col-6 col-md-4 id-card-icon-front">
+                                <img src="assets/img/icon-6.jpg" alt="">
+                            </div>
+                            <div class="col col-md-8 id-card-details-front">
+                                <p>
+                                    <span class="label">Name</span>
+                                    <span class="value">marcia</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Birthday</span>
+                                    <span class="value">08-28-2002</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Course</span>
+                                    <span class="value">MEDTECH</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Motto</span>
+                                    <span class="value">soaper sikip q daw?!</span>
+                                </p>
+                                <div class="line"></div>
+                                <div class="signature">
+                                    <p class="sign">marsyaa</p>
+                                    <div class="signature-line"></div>
+                                    <p class="signature-label">Signature</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col col-md-8 id-card-details">
-                    <p>
-                        <span class="label">Name</span>
-                        <span class="value">Hana</span>
-                    </p>
-                    <div class="line"></div>
-                    <p>
-                        <span class="label">Birthday</span>
-                        <span class="value">09-12-2002</span>
-                    </p>
-                    <div class="line"></div>
-                    <p>
-                        <span class="label">Course</span>
-                        <span class="value">BSITWMA</span>
-                    </p>
-                    <div class="line"></div>
-                    <p>
-                        <span class="label">Motto</span>
-                        <span class="value">subomoto</span>
-                    </p>
-                    <div class="line"></div>
-                    <div class="signature">
-                        <p class="sign">Hannah G</p>
-                        <div class="signature-line"></div>
-                        <p class="signature-label">Signature</p>
+            </div>
+            <div class="flip-card-back">
+                <div class="container id-card-container-back p-0">
+                    <div class="id-card-logo-back">
+                        <img src="assets/img/cs-logo.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="text-center mt-2 mb-3">
+        <h5 style="font-style: italic; font-size: 10px; color: grey;">click the card</h5>
+    </div>
+    <div class="music-player d-flex align-items-center justify-content-center">
+        <div class="audio-player">
+            <div class="audio-title">
+                <p class="fw-bold text-sm mb-0" style="color: #c78ca0;">♪ now playing : 
+                    <span class="fw-lighter" style="font-style: italic; color: grey;"> mantra - jennie</span>
+                </p>
+            </div>
+            <div class="audio-controls">
+                <button id="playBtn" class="btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="pauseBtn" class="btn pause-btn" style="display: none;">
+                    <i class="fas fa-pause"></i> 
+                </button>
+                <div class="time-display">
+                    <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                </div>
+                <input type="range" id="progress"  class="progress-bar progress-edit" style="height: 5px; width: 100%;" value="0" max="100"  step="1" oninput="this.style.setProperty('--value', this.value + '%')">
+                
+                <button id="muteBtn" class="btn mute-btn">
+                    <i class="fas fa-volume-up"></i> 
+                </button>
+                <input type="range" id="volume" value="20" max="100" step="1" class="progress-bar progress-edit" style="height: 5px; width: 40%;" oninput="this.style.setProperty('--value', this.value + '%')">
+
+                <audio id="audio" preload="auto">
+                    <source src="assets/music/music-2.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+    </div>`;
+const hannahInfo = `
+    <!-- PER MEMBER MODAL CONTENT -->
+    <div class="flip-card" id="flipCard">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="container id-card-container-front p-0">
+                    <div class="row id-card-header-front">
+                        <div class="col-auto id-logo-front ps-0">
+                            <img src="assets/img/cs-logo.png" alt="Logo">
+                        </div>
+                        <div class="col text-end pe-0">
+                            <h1 class="id-header-title-front">Identification Card</h1>
+                            <h4 class="id-header-subtitle-front">NO.202509122002</h4>
+                        </div>
+                    </div>
+                    <div class="row id-card-body-front w-100">
+                        <div class="row id-card-content-front w-100">
+                            <div class="col-6 col-md-4 id-card-icon-front">
+                                <img src="assets/img/icon-8.jpg" alt="">
+                            </div>
+                            <div class="col col-md-8 id-card-details-front">
+                                <p>
+                                    <span class="label">Name</span>
+                                    <span class="value">Hana</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Birthday</span>
+                                    <span class="value">09-12-2002</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Course</span>
+                                    <span class="value">BSITWMA</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Motto</span>
+                                    <span class="value">subomoto</span>
+                                </p>
+                                <div class="line"></div>
+                                <div class="signature">
+                                    <p class="sign">Hannah G</p>
+                                    <div class="signature-line"></div>
+                                    <p class="signature-label">Signature</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="container id-card-container-back p-0">
+                    <div class="id-card-logo-back">
+                        <img src="assets/img/cs-logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-2 mb-3">
+        <h5 style="font-style: italic; font-size: 10px; color: grey;">click the card</h5>
+    </div>
+    <div class="music-player d-flex align-items-center justify-content-center">
+        <div class="audio-player">
+            <div class="audio-title">
+                <p class="fw-bold text-sm mb-0" style="color: #c78ca0;">♪ now playing : 
+                    <span class="fw-lighter" style="font-style: italic; color: grey;"> dive - olivia dean</span>
+                </p>
+            </div>
+            <div class="audio-controls">
+                <button id="playBtn" class="btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="pauseBtn" class="btn pause-btn" style="display: none;">
+                    <i class="fas fa-pause"></i> 
+                </button>
+                <div class="time-display">
+                    <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                </div>
+                <input type="range" id="progress"  class="progress-bar progress-edit" style="height: 5px; width: 100%;" value="0" max="100"  step="1" oninput="this.style.setProperty('--value', this.value + '%')">
+                
+                <button id="muteBtn" class="btn mute-btn">
+                    <i class="fas fa-volume-up"></i> 
+                </button>
+                <input type="range" id="volume" value="20" max="100" step="1" class="progress-bar progress-edit" style="height: 5px; width: 40%;" oninput="this.style.setProperty('--value', this.value + '%')">
+
+                <audio id="audio" preload="auto">
+                    <source src="assets/music/music-5.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
     </div>`;
 const marielleInfo = `
-    <div class="container p-0">
-        <div class="text-center">
-            <h1 class="fw-bold d-inline fs-5">Tayo ay nasa</h1>
-            <h1 class="fw-bold d-inline text-danger" style="font-family: 'Corinthia', serif; font-size: 21px; font-style: italic;">
-                ✨fine dining restaurant✨
-            </h1>
+    <div class="flip-card" id="flipCard">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="container id-card-container-front p-0">
+                    <div class="row id-card-header-front">
+                        <div class="col-auto id-logo-front ps-0">
+                            <img src="assets/img/cs-logo.png" alt="Logo">
+                        </div>
+                        <div class="col text-end pe-0">
+                            <h1 class="id-header-title-front">Identification Card</h1>
+                            <h4 class="id-header-subtitle-front">NO.202510082002</h4>
+                        </div>
+                    </div>
+                    <div class="row id-card-body-front w-100">
+                        <div class="row id-card-content-front w-100">
+                            <div class="col-6 col-md-4 id-card-icon-front">
+                                <img src="assets/img/icon-7.jpg" alt="">
+                            </div>
+                            <div class="col col-md-8 id-card-details-front">
+                                <p>
+                                    <span class="label">Name</span>
+                                    <span class="value">marielle</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Birthday</span>
+                                    <span class="value">10-08-2002</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Course</span>
+                                    <span class="value">NURSING</span>
+                                </p>
+                                <div class="line"></div>
+                                <p>
+                                    <span class="label">Motto</span>
+                                    <span class="value">mama mo</span>
+                                </p>
+                                <div class="line"></div>
+                                <div class="signature">
+                                    <p class="sign">maryel</p>
+                                    <div class="signature-line"></div>
+                                    <p class="signature-label">Signature</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="container id-card-container-back p-0">
+                    <div class="id-card-logo-back">
+                        <img src="assets/img/cs-logo.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="text-center mt-2 mb-3">
+        <h5 style="font-style: italic; font-size: 10px; color: grey;">click the card</h5>
+    </div>
+    <div class="music-player d-flex align-items-center justify-content-center">
+        <div class="audio-player">
+            <div class="audio-title">
+                <p class="fw-bold text-sm mb-0" style="color: #c78ca0;">♪ now playing : 
+                    <span class="fw-lighter" style="font-style: italic; color: grey;"> good graces - sabrina carpenter</span>
+                </p>
+            </div>
+            <div class="audio-controls">
+                <button id="playBtn" class="btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="pauseBtn" class="btn pause-btn" style="display: none;">
+                    <i class="fas fa-pause"></i> 
+                </button>
+                <div class="time-display">
+                    <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                </div>
+                <input type="range" id="progress"  class="progress-bar progress-edit" style="height: 5px; width: 100%;" value="0" max="100"  step="1" oninput="this.style.setProperty('--value', this.value + '%')">
+                
+                <button id="muteBtn" class="btn mute-btn">
+                    <i class="fas fa-volume-up"></i> 
+                </button>
+                <input type="range" id="volume" value="20" max="100" step="1" class="progress-bar progress-edit" style="height: 5px; width: 40%;" oninput="this.style.setProperty('--value', this.value + '%')">
 
-        <video autoplay loop playsinline width="100%" controls class="my-2">
-            <source src="assets/img/vid-1.mp4" type="video/mp4">
-        </video>
-
-        <div class="fw-bold text-align-justify px-1">
-            <p style="font-size: 15px; line-height: 1.3;">
-                nung dinner 🥩🍜☕️ ano nangyari? 🤨🫣💀 may inaabot ka kay papi 🫳🏻🤔💅🏻 PUTANGINA NALAGLAG ⁉️😤 YUNG BISKWIT tama?! 🥔🫓👍🏻 
-                Tayo ay nasa <span class="fw-bold text-danger">✨✨fine DINING restaurant✨✨</span> diba? so yung pag ka skwater natin 🤩🤙🏿💩 
-                iwan natin sa bahay. 🍻🏠🍆 pag nalaglag andun 😬🙈‼️ sina miss vina sila doc yappy. 🧝🏻‍♀️👨‍⚕️👀 
-                imbis na "ay sorry sorry" 🙏🏻🫦😿 ano naging reaction 🤠🫥👊🏻 PUTANGINA NETO 🤦🏻‍♀️🤬🔥 NAGBIBIGAY LANG GANYAN PA! 😤🖕🏻🦶🏻 
-                EH kinang ina mo naman 🧞‍♂️🙄🐊 nasa restaurant ka naman na sosyal 👨🏻‍🍳🧍🏻‍♀️🦦, kelan moko narinig 🐣📆👂 
-                na PUKINGINA NAMAN EH! 🦪🍑⏳ nag gaganyan ako sa ke ms vina? 👩🏻‍🦯‍➡️🤰🏻👁️ never. 👎🏻🙅🏻‍♀️ ang tawag dun pakikisama 
-                💃🏻🤳🏻💆🏻‍♀️ hindi ka naman magiging peke eh 😃😇 pero puta umadjust ka naman sa sitwasyon 🥺🤌🏻🧚🏻 TANGINA NAMAN EH 
-                😡😤🗯️ NAGBIBIGAYBIGAY LANG AKO EH! 🤬👨🏻‍🦲🦭 napaganun ako sayo oh 👁️👄👁️ ay putangina ni mikay oh 🪳🌛💨 
-                ay gago nakaganun ako oh 👁️👄👁️ nakatingin lang ako sayo ng ganyan. 👀🌬️💥 tas nung sinabi mo 🤾🏻‍♀️🥊🤦🏻‍♀️ 
-                ay sori sori sori po sori po 🗽☹️✊🏻 nung gumilid kayo 🫤👭🏻 tsaka, tsaka ako kumalma 😌🤰🏻🦥 tinignan ako ni vince e 
-                🌚🙍🏼‍♂️👩‍❤️‍💋‍👨
-            </p>
+                <audio id="audio" preload="auto">
+                    <source src="assets/music/music-4.mp3" type="audio/mp3">
+                </audio>
+            </div>
         </div>
     </div>`;
 

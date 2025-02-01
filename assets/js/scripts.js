@@ -1,6 +1,15 @@
 function loadContent(section) {
     const sections = document.querySelectorAll('.home-content, .about-content, .playlist-content, .gallery-content');
-    sections.forEach(el => el.style.display = 'none');
+    sections.forEach(el => {
+        if (el.id === "about") {
+            const video = el.querySelector("video");
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
+        el.style.display = 'none';
+    });
 
     const activeSection = document.getElementById(section);
     if (activeSection) {
@@ -30,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
             loadContent("about");
         });
     }
-
 });
 
 function showModal(event, name, content) {
@@ -71,8 +79,8 @@ function showModal(event, name, content) {
 
         const audio = document.getElementById("audio");
         if (audio) {
-            audio.pause(); // Pause the audio
-            audio.currentTime = 0; // Reset the audio to the beginning
+            audio.pause();
+            audio.currentTime = 0;
         }
         
     }, { once: true });

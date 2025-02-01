@@ -641,10 +641,16 @@ body {
         max-width: 100%;
     }
 
-    .carousel-fixed, .video-container {
+    .video-container {
         max-height: 400px;
         height: 100%;
         margin-bottom: 1rem;
+    }
+
+    .carousel-fixed {
+        height: 60vh;
+        margin-bottom: 1rem;
+        max-height: 500px;
     }
 
     .carousel-inner img {
